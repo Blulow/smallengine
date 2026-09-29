@@ -37,8 +37,8 @@
   "C_Cpp_Runner.warningsAsError": false,
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [
-    "${workspaceFolder}\\src\\glad\\gl.c",
-    "${workspaceFolder}\\src\\glad\\wgl.c",
+    "${workspaceFolder}/src/**/*.cpp",
+    "${workspaceFolder}/src/**/*.c",
     "-lopengl32",
     "-lgdi32",
     "-lglu32"
