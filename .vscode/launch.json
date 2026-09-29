@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine",
-      "program": "c:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/Debug/outDebug",
+      "cwd": "c:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/engine",
+      "program": "c:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/engine/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
