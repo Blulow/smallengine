@@ -2,11 +2,8 @@
 #include <windows.h>
 #include <glad/gl.h>
 #include <glad/wgl.h>
-#include <smallengine/engine/app_properties.h>
-#include <smallengine/engine/renderer.h>
-
-AppProperties app; // fetch app properties
-Renderer rdr; // fetch renderer
+#include <engine/app_properties.h>
+#include <engine/renderer.h>
 
 void* GetWGLProcAddress(const char* name) {
     void* p = (void*)wglGetProcAddress(name);
@@ -29,16 +26,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 int LoadGLDummyWindowThenKill(HINSTANCE hInstance) {
-    const char* DCLASS_NAME = "A";
+    LPCWSTR DCLASS_NAME = L"A";
 
-    WNDCLASSEX dwc{};
-    dwc.cbSize = sizeof(WNDCLASSEX);
+    WNDCLASSEXW dwc{};
+    dwc.cbSize = sizeof(WNDCLASSEXW);
     dwc.lpfnWndProc = DefWindowProc;
     dwc.hInstance = hInstance;
     dwc.lpszClassName = DCLASS_NAME;
-    RegisterClassEx(&dwc);
+    RegisterClassExW(&dwc);
 
-    HWND dhwnd = CreateWindowEx(0, DCLASS_NAME, "", WS_OVERLAPPEDWINDOW,
+    HWND dhwnd = CreateWindowExW(0, DCLASS_NAME, L"", WS_OVERLAPPEDWINDOW,
         0, 0, 0, 0,
         nullptr, nullptr, hInstance, nullptr);
     
@@ -70,7 +67,7 @@ int LoadGLDummyWindowThenKill(HINSTANCE hInstance) {
     wglDeleteContext(dhrc);
     ReleaseDC(dhwnd, dhdc);
     DestroyWindow(dhwnd);
-    UnregisterClass(DCLASS_NAME, hInstance);
+    UnregisterClassW(DCLASS_NAME, hInstance);
 
     return 0;
 }
@@ -79,15 +76,15 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
     const int SCREEN_WIDTH = GetSystemMetrics(SM_CXSCREEN);
     const int SCREEN_HEIGHT = GetSystemMetrics(SM_CYSCREEN);
 
-    WNDCLASSEX wc{};
-    wc.cbSize = sizeof(WNDCLASSEX);
+    WNDCLASSEXW wc{};
+    wc.cbSize = sizeof(WNDCLASSEXW);
     wc.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
     wc.lpfnWndProc = WindowProc;
     wc.hInstance = hInstance;
     wc.lpszClassName = app.CLASS_NAME;
-    RegisterClassEx(&wc);
+    RegisterClassExW(&wc);
 
-    app.hwnd = CreateWindowEx(0, app.CLASS_NAME, "Small Engine",
+    app.hwnd = CreateWindowExW(0, app.CLASS_NAME, L"Small Engine",
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,
         (SCREEN_WIDTH - app.WINDOW_WIDTH) / 2, (SCREEN_HEIGHT - app.WINDOW_HEIGHT) / 2,
         app.WINDOW_WIDTH, app.WINDOW_HEIGHT,
@@ -159,6 +156,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     wglDeleteContext(app.hrc);
     ReleaseDC(app.hwnd, app.hdc);
     DestroyWindow(app.hwnd);
-    UnregisterClass(app.CLASS_NAME, hInstance);
+    UnregisterClassW(app.CLASS_NAME, hInstance);
     return 0;
 }

@@ -1,0 +1,10 @@
+# ninja log v7
+18	1250	8124888712357318	external/glad/CMakeFiles/glad.dir/src/wgl.c.obj	4dfadd063bf947d8
+5	1898	8124888712229144	external/glad/CMakeFiles/glad.dir/src/gl.c.obj	89bcb382088e9738
+60	2249	8124888712773042	CMakeFiles/thesmallengine.dir/src/engine/window.cpp.obj	6f4ccb8f3334dd10
+43	2279	8124888712612863	CMakeFiles/thesmallengine.dir/src/engine/renderer.cpp.obj	906715cfc51d6769
+19	1489	8124889252602866	external/glad/libglad.a	453c443906d4b6f9
+8	2045	8124889252502661	CMakeFiles/thesmallengine.dir/src/engine/app_properties.cpp.obj	b07553229bd23e5f
+12	2092	8124889252542600	CMakeFiles/thesmallengine.dir/src/engine/renderer.cpp.obj	906715cfc51d6769
+15	2127	8124889252562607	CMakeFiles/thesmallengine.dir/src/engine/window.cpp.obj	6f4ccb8f3334dd10
+2128	2336	8124889273694751	thesmallengine.exe	9f0114b20a79e343

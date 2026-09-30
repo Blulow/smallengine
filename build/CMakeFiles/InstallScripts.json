@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/cmake_install.cmake",
+		"C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/external/glad/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
