@@ -12,5 +12,4 @@ add_executable(thesmallengine ${G_SOURCES} ${G_HEADERS})
 target_include_directories(thesmallengine PUBLIC include)
 
 target_link_libraries(thesmallengine PRIVATE opengl32 glad)
-
-
+add_compile_definitions(UNICODE _UNICODE)

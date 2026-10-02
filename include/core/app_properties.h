@@ -14,4 +14,4 @@ struct AppProperties {
     HGLRC hrc = nullptr;
 };
 
-extern AppProperties app;
+extern AppProperties G_APPPROP;

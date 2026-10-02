@@ -2,8 +2,10 @@
 #include <windows.h>
 #include <glad/gl.h>
 #include <glad/wgl.h>
-#include <engine/app_properties.h>
-#include <engine/renderer.h>
+#include <core/app_properties.h>
+#include <core/renderer.h>
+
+Renderer renderer;
 
 void* GetWGLProcAddress(const char* name) {
     void* p = (void*)wglGetProcAddress(name);
@@ -81,17 +83,17 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
     wc.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
     wc.lpfnWndProc = WindowProc;
     wc.hInstance = hInstance;
-    wc.lpszClassName = app.CLASS_NAME;
+    wc.lpszClassName = G_APPPROP.CLASS_NAME;
     RegisterClassExW(&wc);
 
-    app.hwnd = CreateWindowExW(0, app.CLASS_NAME, L"Small Engine",
+    G_APPPROP.hwnd = CreateWindowExW(0, G_APPPROP.CLASS_NAME, L"Small Engine",
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-        (SCREEN_WIDTH - app.WINDOW_WIDTH) / 2, (SCREEN_HEIGHT - app.WINDOW_HEIGHT) / 2,
-        app.WINDOW_WIDTH, app.WINDOW_HEIGHT,
+        (SCREEN_WIDTH - G_APPPROP.WINDOW_WIDTH) / 2, (SCREEN_HEIGHT - G_APPPROP.WINDOW_HEIGHT) / 2,
+        G_APPPROP.WINDOW_WIDTH, G_APPPROP.WINDOW_HEIGHT,
         nullptr, nullptr, hInstance, nullptr);
-    ShowWindow(app.hwnd, nCmdShow);
+    ShowWindow(G_APPPROP.hwnd, nCmdShow);
 
-    app.hdc = GetDC(app.hwnd);
+    G_APPPROP.hdc = GetDC(G_APPPROP.hwnd);
 
     const int pixelAttribs[] = {
         WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
@@ -106,12 +108,12 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
 
     int pf = 0;
     UINT nFormats = 0;
-    wglChoosePixelFormatARB(app.hdc, pixelAttribs, nullptr, 1, &pf, &nFormats);
+    wglChoosePixelFormatARB(G_APPPROP.hdc, pixelAttribs, nullptr, 1, &pf, &nFormats);
 
     PIXELFORMATDESCRIPTOR pfd = {};
-    DescribePixelFormat(app.hdc, pf, sizeof(pfd), &pfd);
+    DescribePixelFormat(G_APPPROP.hdc, pf, sizeof(pfd), &pfd);
 
-    SetPixelFormat(app.hdc, pf, &pfd);
+    SetPixelFormat(G_APPPROP.hdc, pf, &pfd);
 
     const int contextAttribs[] = {
         WGL_CONTEXT_MAJOR_VERSION_ARB, 4,
@@ -120,8 +122,8 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
         0
     };
 
-    app.hrc = wglCreateContextAttribsARB(app.hdc, 0, contextAttribs);
-    if (!wglMakeCurrent(app.hdc, app.hrc)) {
+    G_APPPROP.hrc = wglCreateContextAttribsARB(G_APPPROP.hdc, 0, contextAttribs);
+    if (!wglMakeCurrent(G_APPPROP.hdc, G_APPPROP.hrc)) {
         return -1;
     }
 
@@ -139,7 +141,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
         return -1;
     }
 
-    rdr.init();
+    renderer.init();
 
     // main rendering
     MSG msg{};
@@ -148,14 +150,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         } else {
-            rdr.render();
+            renderer.render();
         }
     }
 
     wglMakeCurrent(nullptr, nullptr);
-    wglDeleteContext(app.hrc);
-    ReleaseDC(app.hwnd, app.hdc);
-    DestroyWindow(app.hwnd);
-    UnregisterClassW(app.CLASS_NAME, hInstance);
+    wglDeleteContext(G_APPPROP.hrc);
+    ReleaseDC(G_APPPROP.hwnd, G_APPPROP.hdc);
+    DestroyWindow(G_APPPROP.hwnd);
+    UnregisterClassW(G_APPPROP.CLASS_NAME, hInstance);
     return 0;
 }
