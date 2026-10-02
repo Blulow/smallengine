@@ -6,10 +6,15 @@
 
 #include <core/app_properties.h>
 #include <core/renderer.h>
+#include <core/window.h>
 
-Renderer renderer;
+Window window;
 
-void* GetWGLProcAddress(const char* name) {
+Renderer Window::getRenderer() const {
+    return renderer;
+}
+
+void* Window::GetWGLProcAddress(const char* name) {
     void* p = (void*)wglGetProcAddress(name);
     if (p == 0 || p == (void*)0x1 || p == (void*)0x2 || p == (void*)0x3 || p == (void*)-1) {
         HMODULE module = LoadLibraryA("opengl32.dll");
@@ -19,7 +24,7 @@ void* GetWGLProcAddress(const char* name) {
 }
 
 // main message handling
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK Window::WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch(msg) {
         case WM_DESTROY:
             PostQuitMessage(0);
@@ -29,7 +34,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     return DefWindowProc(hwnd, msg, wParam, lParam);
 }
 
-int LoadGLDummyWindowThenKill(HINSTANCE hInstance) {
+int Window::LoadGLDummyWindowThenKill(HINSTANCE hInstance) const {
     LPCWSTR DCLASS_NAME = L"A";
 
     WNDCLASSEXW dwc{};
@@ -76,7 +81,7 @@ int LoadGLDummyWindowThenKill(HINSTANCE hInstance) {
     return 0;
 }
 
-int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
+int Window::LoadActualWindow(HINSTANCE hInstance, int nCmdShow) const {
     const int SCREEN_WIDTH = GetSystemMetrics(SM_CXSCREEN);
     const int SCREEN_HEIGHT = GetSystemMetrics(SM_CYSCREEN);
 
@@ -133,7 +138,7 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
     return 0;
 }
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
+int Window::GenerateWindow(HINSTANCE hInstance, int nCmdShow) const {
     if (LoadGLDummyWindowThenKill(hInstance) < 0) {
         std::cerr << "Failed to instantiate OpenGL extensions\n";
         return -1;
@@ -144,7 +149,26 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
         return -1;
     }
 
-    renderer.init();
+    return 0;
+}
+
+int Window::TerminateWindow(HINSTANCE hInstance) const {
+    wglMakeCurrent(nullptr, nullptr);
+    wglDeleteContext(G_APPPROP.getHRC());
+    ReleaseDC(G_APPPROP.getHWND(), G_APPPROP.getHDC());
+    DestroyWindow(G_APPPROP.getHWND());
+    UnregisterClassW(G_APPPROP.getClassName(), hInstance);
+
+    return 0;
+}
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
+    if (window.GenerateWindow(hInstance, nCmdShow) < 0) {
+        std::cout << "Window generation failed\n";
+        return -1;
+    }
+
+    window.getRenderer().init();
 
     // main rendering
     MSG msg{};
@@ -153,14 +177,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         } else {
-            renderer.render();
+            window.getRenderer().render();
         }
     }
 
-    wglMakeCurrent(nullptr, nullptr);
-    wglDeleteContext(G_APPPROP.getHRC());
-    ReleaseDC(G_APPPROP.getHWND(), G_APPPROP.getHDC());
-    DestroyWindow(G_APPPROP.getHWND());
-    UnregisterClassW(G_APPPROP.getClassName(), hInstance);
+    if (window.TerminateWindow(hInstance) < 0) {
+        std::cerr << "Window termination failed\n";
+        return -1;
+    }
+    
     return 0;
 }
