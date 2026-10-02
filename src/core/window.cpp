@@ -1,7 +1,9 @@
 #include <iostream>
 #include <windows.h>
+
 #include <glad/gl.h>
 #include <glad/wgl.h>
+
 #include <core/app_properties.h>
 #include <core/renderer.h>
 
@@ -83,17 +85,18 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
     wc.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
     wc.lpfnWndProc = WindowProc;
     wc.hInstance = hInstance;
-    wc.lpszClassName = G_APPPROP.CLASS_NAME;
+    wc.lpszClassName = G_APPPROP.getClassName();
     RegisterClassExW(&wc);
 
-    G_APPPROP.hwnd = CreateWindowExW(0, G_APPPROP.CLASS_NAME, L"Small Engine",
+    HWND hwnd = CreateWindowExW(0, G_APPPROP.getClassName(), L"Small Engine",
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-        (SCREEN_WIDTH - G_APPPROP.WINDOW_WIDTH) / 2, (SCREEN_HEIGHT - G_APPPROP.WINDOW_HEIGHT) / 2,
-        G_APPPROP.WINDOW_WIDTH, G_APPPROP.WINDOW_HEIGHT,
+        (SCREEN_WIDTH - G_APPPROP.INIT_WINDOW_WIDTH) / 2, (SCREEN_HEIGHT - G_APPPROP.INIT_WINDOW_HEIGHT) / 2,
+        G_APPPROP.INIT_WINDOW_WIDTH, G_APPPROP.INIT_WINDOW_HEIGHT,
         nullptr, nullptr, hInstance, nullptr);
-    ShowWindow(G_APPPROP.hwnd, nCmdShow);
+    G_APPPROP.setHWND(hwnd);
+    ShowWindow(G_APPPROP.getHWND(), nCmdShow);
 
-    G_APPPROP.hdc = GetDC(G_APPPROP.hwnd);
+    G_APPPROP.setHDC(GetDC(G_APPPROP.getHWND()));
 
     const int pixelAttribs[] = {
         WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
@@ -108,12 +111,12 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
 
     int pf = 0;
     UINT nFormats = 0;
-    wglChoosePixelFormatARB(G_APPPROP.hdc, pixelAttribs, nullptr, 1, &pf, &nFormats);
+    wglChoosePixelFormatARB(G_APPPROP.getHDC(), pixelAttribs, nullptr, 1, &pf, &nFormats);
 
     PIXELFORMATDESCRIPTOR pfd = {};
-    DescribePixelFormat(G_APPPROP.hdc, pf, sizeof(pfd), &pfd);
+    DescribePixelFormat(G_APPPROP.getHDC(), pf, sizeof(pfd), &pfd);
 
-    SetPixelFormat(G_APPPROP.hdc, pf, &pfd);
+    SetPixelFormat(G_APPPROP.getHDC(), pf, &pfd);
 
     const int contextAttribs[] = {
         WGL_CONTEXT_MAJOR_VERSION_ARB, 4,
@@ -122,8 +125,8 @@ int LoadActualWindow(HINSTANCE hInstance, int nCmdShow) {
         0
     };
 
-    G_APPPROP.hrc = wglCreateContextAttribsARB(G_APPPROP.hdc, 0, contextAttribs);
-    if (!wglMakeCurrent(G_APPPROP.hdc, G_APPPROP.hrc)) {
+    G_APPPROP.setHRC(wglCreateContextAttribsARB(G_APPPROP.getHDC(), 0, contextAttribs));
+    if (!wglMakeCurrent(G_APPPROP.getHDC(), G_APPPROP.getHRC())) {
         return -1;
     }
 
@@ -155,9 +158,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     }
 
     wglMakeCurrent(nullptr, nullptr);
-    wglDeleteContext(G_APPPROP.hrc);
-    ReleaseDC(G_APPPROP.hwnd, G_APPPROP.hdc);
-    DestroyWindow(G_APPPROP.hwnd);
-    UnregisterClassW(G_APPPROP.CLASS_NAME, hInstance);
+    wglDeleteContext(G_APPPROP.getHRC());
+    ReleaseDC(G_APPPROP.getHWND(), G_APPPROP.getHDC());
+    DestroyWindow(G_APPPROP.getHWND());
+    UnregisterClassW(G_APPPROP.getClassName(), hInstance);
     return 0;
 }
