@@ -3,17 +3,18 @@
 #include <algorithm>
 #include <stdexcept>
 
+#include <math/vector.h>
 #include <entity/geometry.h>
 
 Geometry::Geometry() {
 
 }
 
-std::vector<float> Geometry::getVertices() const {
+std::vector<Vector> Geometry::getVertices() const {
     return vertices;
 }
 
-void Geometry::appendVertices(int index, std::vector<float> _vertices) {
+void Geometry::appendVertices(int index, std::vector<Vector> _vertices) {
     if (index > vertices.size() || index < 0) {
         throw std::runtime_error("Index is out of bounds.");
     }

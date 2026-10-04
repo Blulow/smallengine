@@ -2,12 +2,12 @@
 
 class Geometry {
 private:
-    std::vector<float> vertices;
+    std::vector<Vector> vertices;
 public:
     Geometry();
 
-    std::vector<float> getVertices() const;
-    void appendVertices(int index, std::vector<float> _vertices);
+    std::vector<Vector> getVertices() const;
+    void appendVertices(int index, std::vector<Vector> _vertices);
     void removeVertices(int index, int length);
     void clearVertices();
 };
