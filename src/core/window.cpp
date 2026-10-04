@@ -164,7 +164,7 @@ int Window::TerminateWindow(HINSTANCE hInstance) const {
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     if (window.GenerateWindow(hInstance, nCmdShow) < 0) {
-        std::cout << "Window generation failed\n";
+        std::cerr << "Window generation failed\n";
         return -1;
     }
 

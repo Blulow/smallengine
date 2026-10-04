@@ -89,14 +89,54 @@ build CMakeFiles/thesmallengine.dir/src/core/window.cpp.obj: CXX_COMPILER__thesm
   OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src\core
   TARGET_SUPPORT_DIR = CMakeFiles\thesmallengine.dir
 
-build CMakeFiles/thesmallengine.dir/src/mesh.cpp.obj: CXX_COMPILER__thesmallengine_unscanned_Debug C$:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/mesh.cpp || cmake_object_order_depends_target_thesmallengine
+build CMakeFiles/thesmallengine.dir/src/entity/mesh.cpp.obj: CXX_COMPILER__thesmallengine_unscanned_Debug C$:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/entity/mesh.cpp || cmake_object_order_depends_target_thesmallengine
   CONFIG = Debug
   DEFINES = -DUNICODE -D_UNICODE
-  DEP_FILE = CMakeFiles\thesmallengine.dir\src\mesh.cpp.obj.d
+  DEP_FILE = CMakeFiles\thesmallengine.dir\src\entity\mesh.cpp.obj.d
   FLAGS = -g -std=gnu++20
   INCLUDES = -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include
   OBJECT_DIR = CMakeFiles\thesmallengine.dir
-  OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src
+  OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src\entity
+  TARGET_SUPPORT_DIR = CMakeFiles\thesmallengine.dir
+
+build CMakeFiles/thesmallengine.dir/src/math/color.cpp.obj: CXX_COMPILER__thesmallengine_unscanned_Debug C$:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/math/color.cpp || cmake_object_order_depends_target_thesmallengine
+  CONFIG = Debug
+  DEFINES = -DUNICODE -D_UNICODE
+  DEP_FILE = CMakeFiles\thesmallengine.dir\src\math\color.cpp.obj.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\thesmallengine.dir
+  OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src\math
+  TARGET_SUPPORT_DIR = CMakeFiles\thesmallengine.dir
+
+build CMakeFiles/thesmallengine.dir/src/math/vector.cpp.obj: CXX_COMPILER__thesmallengine_unscanned_Debug C$:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/math/vector.cpp || cmake_object_order_depends_target_thesmallengine
+  CONFIG = Debug
+  DEFINES = -DUNICODE -D_UNICODE
+  DEP_FILE = CMakeFiles\thesmallengine.dir\src\math\vector.cpp.obj.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\thesmallengine.dir
+  OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src\math
+  TARGET_SUPPORT_DIR = CMakeFiles\thesmallengine.dir
+
+build CMakeFiles/thesmallengine.dir/src/resource/geometry.cpp.obj: CXX_COMPILER__thesmallengine_unscanned_Debug C$:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/resource/geometry.cpp || cmake_object_order_depends_target_thesmallengine
+  CONFIG = Debug
+  DEFINES = -DUNICODE -D_UNICODE
+  DEP_FILE = CMakeFiles\thesmallengine.dir\src\resource\geometry.cpp.obj.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\thesmallengine.dir
+  OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src\resource
+  TARGET_SUPPORT_DIR = CMakeFiles\thesmallengine.dir
+
+build CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj: CXX_COMPILER__thesmallengine_unscanned_Debug C$:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/resource/material.cpp || cmake_object_order_depends_target_thesmallengine
+  CONFIG = Debug
+  DEFINES = -DUNICODE -D_UNICODE
+  DEP_FILE = CMakeFiles\thesmallengine.dir\src\resource\material.cpp.obj.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\thesmallengine.dir
+  OBJECT_FILE_DIR = CMakeFiles\thesmallengine.dir\src\resource
   TARGET_SUPPORT_DIR = CMakeFiles\thesmallengine.dir
 
 
@@ -107,7 +147,7 @@ build CMakeFiles/thesmallengine.dir/src/mesh.cpp.obj: CXX_COMPILER__thesmallengi
 #############################################
 # Link the executable thesmallengine.exe
 
-build thesmallengine.exe: CXX_EXECUTABLE_LINKER__thesmallengine_Debug CMakeFiles/thesmallengine.dir/src/core/app_properties.cpp.obj CMakeFiles/thesmallengine.dir/src/core/renderer.cpp.obj CMakeFiles/thesmallengine.dir/src/core/time.cpp.obj CMakeFiles/thesmallengine.dir/src/core/window.cpp.obj CMakeFiles/thesmallengine.dir/src/mesh.cpp.obj | external/glad/libglad.a || external/glad/libglad.a
+build thesmallengine.exe: CXX_EXECUTABLE_LINKER__thesmallengine_Debug CMakeFiles/thesmallengine.dir/src/core/app_properties.cpp.obj CMakeFiles/thesmallengine.dir/src/core/renderer.cpp.obj CMakeFiles/thesmallengine.dir/src/core/time.cpp.obj CMakeFiles/thesmallengine.dir/src/core/window.cpp.obj CMakeFiles/thesmallengine.dir/src/entity/mesh.cpp.obj CMakeFiles/thesmallengine.dir/src/math/color.cpp.obj CMakeFiles/thesmallengine.dir/src/math/vector.cpp.obj CMakeFiles/thesmallengine.dir/src/resource/geometry.cpp.obj CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj | external/glad/libglad.a || external/glad/libglad.a
   CONFIG = Debug
   FLAGS = -g
   LINK_LIBRARIES = -lopengl32  external/glad/libglad.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

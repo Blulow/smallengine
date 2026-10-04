@@ -25,9 +25,33 @@
 },
 {
   "directory": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build",
-  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include -g -std=gnu++20 -o CMakeFiles\\thesmallengine.dir\\src\\mesh.cpp.obj -c C:\\Users\\NG\\OneDrive\\Desktop\\dream\\coding\\thesmallengine\\src\\mesh.cpp",
-  "file": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/mesh.cpp",
-  "output": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/CMakeFiles/thesmallengine.dir/src/mesh.cpp.obj"
+  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include -g -std=gnu++20 -o CMakeFiles\\thesmallengine.dir\\src\\entity\\mesh.cpp.obj -c C:\\Users\\NG\\OneDrive\\Desktop\\dream\\coding\\thesmallengine\\src\\entity\\mesh.cpp",
+  "file": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/entity/mesh.cpp",
+  "output": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/CMakeFiles/thesmallengine.dir/src/entity/mesh.cpp.obj"
+},
+{
+  "directory": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include -g -std=gnu++20 -o CMakeFiles\\thesmallengine.dir\\src\\math\\color.cpp.obj -c C:\\Users\\NG\\OneDrive\\Desktop\\dream\\coding\\thesmallengine\\src\\math\\color.cpp",
+  "file": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/math/color.cpp",
+  "output": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/CMakeFiles/thesmallengine.dir/src/math/color.cpp.obj"
+},
+{
+  "directory": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include -g -std=gnu++20 -o CMakeFiles\\thesmallengine.dir\\src\\math\\vector.cpp.obj -c C:\\Users\\NG\\OneDrive\\Desktop\\dream\\coding\\thesmallengine\\src\\math\\vector.cpp",
+  "file": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/math/vector.cpp",
+  "output": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/CMakeFiles/thesmallengine.dir/src/math/vector.cpp.obj"
+},
+{
+  "directory": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include -g -std=gnu++20 -o CMakeFiles\\thesmallengine.dir\\src\\resource\\geometry.cpp.obj -c C:\\Users\\NG\\OneDrive\\Desktop\\dream\\coding\\thesmallengine\\src\\resource\\geometry.cpp",
+  "file": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/resource/geometry.cpp",
+  "output": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/CMakeFiles/thesmallengine.dir/src/resource/geometry.cpp.obj"
+},
+{
+  "directory": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/include -IC:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/external/glad/include -g -std=gnu++20 -o CMakeFiles\\thesmallengine.dir\\src\\resource\\material.cpp.obj -c C:\\Users\\NG\\OneDrive\\Desktop\\dream\\coding\\thesmallengine\\src\\resource\\material.cpp",
+  "file": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/src/resource/material.cpp",
+  "output": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build/CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj"
 },
 {
   "directory": "C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build",

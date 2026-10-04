@@ -1,6 +1,6 @@
 #include <math/color.h>
 
-#include <entity/material.h>
+#include <resource/material.h>
 
 Material::Material() {
 

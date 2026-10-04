@@ -1,20 +1,40 @@
 #include <iostream>
 #include <windows.h>
 #include <array>
+#include <vector>
 
 #include <glad/gl.h>
 #include <glad/wgl.h>
 
 #include <core/app_properties.h>
 #include <core/time.h>
+#include <entity/mesh.h>
+#include <resource/geometry.h>
+#include <resource/material.h>
+#include <math/vector.h>
+#include <math/color.h>
 #include <core/renderer.h>
+
+Geometry geometry;
+std::vector<Vector> vertices = {
+    Vector(-0.5f, -0.5f, 0.0f),
+    Vector(0.5f, -0.5f, 0.0f),
+    Vector(0.0f, 0.5f, 0.0f)
+};
+
+Material material;
+
+Mesh mesh;
 
 void Renderer::update(float deltaTime) {
     std::cout << deltaTime << "\n";
 }
 
 void Renderer::init() {
-
+    geometry.pushVertices(vertices);
+    material.albedo = Color(1.0, 0.0, 0.0, 1.0);
+    
+    mesh = Mesh(geometry, material);
 }
 
 void Renderer::render() {
@@ -31,6 +51,8 @@ void Renderer::render() {
     update(G_TIME.getDeltaTime());
     glBindVertexArray(vao);
     glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    mesh.draw();
 
     SwapBuffers(G_APPPROP.getHDC());
 }

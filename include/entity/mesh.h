@@ -2,9 +2,16 @@
 
 class Mesh {
 private:
+    Geometry geometry;
+    Material material;
 
+    GLuint vbo = 0;
+    GLuint vao = 0;
+    GLuint shaderProgram = 0;
+
+    void init();
 public:
-    Mesh();
+    Mesh(Geometry _geometry, Material _material);
 
     void draw();
 };
