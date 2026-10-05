@@ -16,14 +16,11 @@
 #include <math/color.h>
 #include <core/renderer.h>
 
-Geometry geometry;
 std::vector<Vector> vertices = {
     Vector(-0.5f, -0.5f, 0.0f),
     Vector(0.5f, -0.5f, 0.0f),
     Vector(0.0f, 0.5f, 0.0f)
 };
-
-Material material;
 
 std::optional<Mesh> mesh;
 
@@ -32,9 +29,8 @@ void Renderer::update(float deltaTime) {
 }
 
 void Renderer::init() {
-    geometry.pushVertices(vertices);
-    material.albedo = Color(1.0, 0.0, 0.0, 1.0);
-    
+    Geometry geometry(vertices);
+    Material material(Color(1.0, 0.0, 0.0, 1.0));
     mesh = Mesh(geometry, material);
 }
 

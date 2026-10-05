@@ -1,0 +1,6 @@
+C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build_debug/CMakeFiles/thesmallengine.dir
+C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build_debug/CMakeFiles/edit_cache.dir
+C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build_debug/CMakeFiles/rebuild_cache.dir
+C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build_debug/external/glad/CMakeFiles/glad.dir
+C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build_debug/external/glad/CMakeFiles/edit_cache.dir
+C:/Users/NG/OneDrive/Desktop/dream/coding/thesmallengine/build_debug/external/glad/CMakeFiles/rebuild_cache.dir

@@ -5,8 +5,9 @@ class Color;
 
 class Material {
 private:
+    GLuint shaderProgram = 0;
 public:
-    Material();
+    Material(Color _albedo = Color(1.0));
 
     Color albedo;
 };
