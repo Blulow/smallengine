@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <array>
 #include <vector>
+#include <optional>
 
 #include <glad/gl.h>
 #include <glad/wgl.h>
@@ -24,10 +25,10 @@ std::vector<Vector> vertices = {
 
 Material material;
 
-Mesh mesh;
+std::optional<Mesh> mesh;
 
 void Renderer::update(float deltaTime) {
-    std::cout << deltaTime << "\n";
+    mesh->draw();
 }
 
 void Renderer::init() {
@@ -49,10 +50,6 @@ void Renderer::render() {
     G_TIME.timeUpdate();
 
     update(G_TIME.getDeltaTime());
-    glBindVertexArray(vao);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-
-    mesh.draw();
 
     SwapBuffers(G_APPPROP.getHDC());
 }

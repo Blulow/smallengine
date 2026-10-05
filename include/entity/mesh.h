@@ -1,4 +1,6 @@
 #pragma once
+#include <resource/geometry.h>
+#include <resource/material.h>
 
 class Mesh {
 private:

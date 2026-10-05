@@ -18,3 +18,17 @@
 15	433	8128378983366262	CMakeFiles/thesmallengine.dir/src/math/color.cpp.obj	5e5201a38104109c
 30	788	8128378983521725	CMakeFiles/thesmallengine.dir/src/math/vector.cpp.obj	f5bcdd06c7fc2012
 43	2966	8128378983652957	CMakeFiles/thesmallengine.dir/src/resource/geometry.cpp.obj	46b0c9f90d3093b2
+14	2454	8128725558088741	CMakeFiles/thesmallengine.dir/src/resource/geometry.cpp.obj	46b0c9f90d3093b2
+14	213	8128726573861242	CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj	adfdc80ee1e0eba2
+13	229	8128726669694829	CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj	adfdc80ee1e0eba2
+10	2149	8128726669664827	CMakeFiles/thesmallengine.dir/src/entity/mesh.cpp.obj	ae951fb838706590
+14	208	8128735055157123	CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj	adfdc80ee1e0eba2
+15	203	8128735574610630	CMakeFiles/thesmallengine.dir/src/resource/material.cpp.obj	adfdc80ee1e0eba2
+11	2170	8128736862614187	CMakeFiles/thesmallengine.dir/src/entity/mesh.cpp.obj	ae951fb838706590
+7	2078	8128739934528949	CMakeFiles/thesmallengine.dir/src/core/renderer.cpp.obj	e75398873f72a182
+2079	2418	8128739955244482	thesmallengine.exe	2f77a21ca97afb5c
+7	2114	8128741716575854	CMakeFiles/thesmallengine.dir/src/core/renderer.cpp.obj	e75398873f72a182
+2115	2351	8128741737655555	thesmallengine.exe	2f77a21ca97afb5c
+11	2158	8128742986717136	CMakeFiles/thesmallengine.dir/src/entity/mesh.cpp.obj	ae951fb838706590
+7	2217	8128742986677135	CMakeFiles/thesmallengine.dir/src/core/renderer.cpp.obj	e75398873f72a182
+2217	2443	8128743008776828	thesmallengine.exe	2f77a21ca97afb5c

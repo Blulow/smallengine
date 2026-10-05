@@ -1,5 +1,7 @@
 #pragma once
 
+class Vector;
+
 class Geometry {
 private:
     std::vector<Vector> vertices;
