@@ -14,9 +14,10 @@ Mesh::Mesh(Geometry _geometry, Material _material): geometry(_geometry), materia
 void Mesh::init() {
     glGenBuffers(1, &vbo);
     glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(geometry.getVerticesFloat().data()), geometry.getVerticesFloat().data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, geometry.getVerticesFloat().size() * sizeof(float), geometry.getVerticesFloat().data(), GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
